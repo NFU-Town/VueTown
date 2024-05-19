@@ -1,0 +1,33 @@
+{
+  "name": "town",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@packy-tang/vue-tinymce": "^2.0.0-beta.1",
+    "@tinymce-plugin/tinymce-vue": "^0.0.1",
+    "@tinymce-plugin/tp-importword": "^0.0.3-beta.8",
+    "@tinymce/tinymce-vue": "^5.1.1",
+    "@vueup/vue-quill": "^1.0.0-alpha.40",
+    "axios": "^1.6.5",
+    "element-plus": "^2.4.1",
+    "lib-flexible": "^0.3.2",
+    "lib-flexible-computer": "^1.0.2",
+    "postcss-px2rem": "^0.3.0",
+    "tinymce": "^6.8.3",
+    "tinymce-plugin": "^0.0.3-beta.22",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5",
+    "vuex": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "px2rem-loader": "^0.1.9",
+    "vite": "^4.4.5"
+  }
+}
