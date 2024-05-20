@@ -61,7 +61,7 @@
 <div>
   <el-upload class="upload-demo" name="file" :data="{ fileType: 'files' }"
             :action="data.actionurl" :drag="true"
-            multiple
+            :file-list="data.article.fileslist"
             :on-success="filesuploadSuccess" :auto-upload="true">
             <el-button slot="trigger" type="primary">选取文件</el-button>
             <div slot="tip" class="el-upload__tip">此处上传附件</div>
@@ -123,6 +123,27 @@ const tinymceinit = {
         external_plugins: {
         // importword: '/importword/index.js',
     },
+    images_upload_handler: (blobInfo, progress) =>new Promise((resolve, reject ) => {
+                        let params = new FormData();
+                        params.append("file", blobInfo.blob());
+                        let config = {
+                            headers: {
+                                "Content-Type": "multipart/form-data",
+                            },
+                        };
+                        axios.post(axios.defaults.baseURL + "/apis/upload/file", params, config)
+                        .then((res) => {
+                            if (res.data.code == 200) {
+                              console.log(res.data.data)
+                                resolve(res.data.data); //上传成功，在成功函数里填入图片路径
+                            } else {
+                                    reject("上传失败");
+                            }
+                        }).catch(() => {
+                            reject("上传出错，服务器开小差了呢");
+                        });
+                    
+                }),
     // 预处理函数
     importword_handler: function(editor,files,next){
         var file_name = files[0].name
