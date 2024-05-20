@@ -121,10 +121,10 @@
               <ul class="erji"></ul>
             </li>
             <li style="padding-left: 20px">
+              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/newslist`)"  class="ddd" style="width: 55px">
+                切换小镇 </a><br />
               <a href="https://www.nfu.edu.cn" class="ddd" style="width: 55px">
                 English </a><br />
-              <a href="https://www.nfu.edu.cn" class="ddd" style="width: 55px">
-                Français</a><br />
               <a href="https://www.nfu.edu.cn" class="ddd">日本語</a>
             </li>
           </ul>

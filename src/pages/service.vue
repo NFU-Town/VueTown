@@ -16,15 +16,19 @@
   
   <script>
   import { reactive, onMounted, ref, toRaw, watch,inject } from 'vue'
-  
+  import {useStore} from 'vuex'
+  import { computed } from '@vue/runtime-core';
   export default {
     name: 'article',
     props: {
     },
     setup() {
       const axios = inject('$axios')
+      const store = useStore()
+    const town = computed(() => store.state.town);
       //数据
       const Data = reactive({
+        town:computed(() => town.value),
         article:{
         title:"",
         origin:"",
@@ -32,18 +36,18 @@
         content:""
       }
       });
-      const getData=(id)=>{
+      const getData=(town)=>{
         axios(
           {
     method: 'get',
-    url: '/apis/find/articles?town=凤二客家文创小镇&sort=景区服务',
+    url: '/apis/find/articles?town='+town+'&sort=景区服务',
   }
       ).then(res=>{
         console.log(res.data.data);
         Data.article=res.data.data;
       })
       }
-      getData();
+      getData(Data.town);
       return {
         Data
       };
