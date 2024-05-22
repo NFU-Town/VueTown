@@ -393,47 +393,47 @@ export default {
         _id:"12"
       },],
       journal:[{
-        title:"古镇府异闻题材小说二则：《九星索魂...",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"沁园春·革囊渡",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"古镇，我用诗歌的翅膀靠近你（组诗）",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"丽攀高速公路（外一首）",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"纳西人的酒——和士诚大东巴诵读东巴",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"读《人生之典》之感悟",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"大饥荒悲剧的缩影 ——读唐之鲁近作...",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },],
       lib:[{
-        title:"古镇明代建筑",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"璀璨的纳西文化",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"周氏六代人与古镇的教育文化艺术",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"有关纳西文化的一段往事",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"与灵魂结伴而行--纳西族传统婚俗巡礼",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"我与茶马古道",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },{
-        title:"滇藏贸易与“恒德和”商号",
+        title:"",
         _id:"6645c0c194c7e27a6a1cf711"
       },],
       towninfo:computed(() => store.state.towninfo)

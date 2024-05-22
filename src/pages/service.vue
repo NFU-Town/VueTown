@@ -10,7 +10,12 @@
       
       <p></p>
       <p></p>
-  
+      <div>
+      <h4>附件：</h4>
+      <h5 v-for="(item, index) in Data.article.files" :key="index" style="color: red;">
+        <a :href="item.url" style="color: red;" target="_blank">{{ item.name }}</a>
+      </h5>
+    </div>
     </div>
   </template>
   

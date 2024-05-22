@@ -576,6 +576,7 @@ img {
 
 .diimg {
   margin-left: 72px;
+  max-height: 130px;
 }
 
 .diimg2 {

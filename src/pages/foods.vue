@@ -10,7 +10,12 @@
       
       <p></p>
       <p></p>
-  
+      <div>
+      <h4>附件：</h4>
+      <h5 v-for="(item, index) in Data.article.files" :key="index" style="color: red;">
+        <a :href="item.url" style="color: red;" target="_blank">{{ item.name }}</a>
+      </h5>
+    </div>
     </div>
   </template>
   
@@ -40,7 +45,7 @@
         axios(
           {
     method: 'get',
-    url: '/apis/find/articles?town='+town+'&sort=景区服务',
+    url: '/apis/find/articles?town='+town+'&sort=美食小吃',
   }
       ).then(res=>{
         console.log(res.data.data);

@@ -62,12 +62,17 @@
           </el-upload>
         </el-form-item>
         <el-form-item label="小镇宣传视频">
-          <el-upload class="upload-demo" :show-file-list="false" name="file" :data="{ fileType: 'mp4' }"
+          <div>
+          <el-upload class="upload-demo" name="file" :data="{ fileType: 'mp4' }" :show-file-list="false"
             :action="data.actionurl" :drag="true" :file-list="data.towninfo.townvideo" :on-success="videoloadSuccess"
             :auto-upload="true">
             <el-button slot="trigger" type="primary">选取文件</el-button>
-            <div slot="tip" class="el-upload__tip">只能上传jpg/png文件</div>
-          </el-upload>
+            <div>
+            <video v-if="data.towninfo.townvideo!=''" id="videoElement" :src="data.towninfo.townvideo" controls="controls" width="280" height="167">
+              您的浏览器不支持 video 标签。
+            </video></div>
+            <div slot="tip" class="el-upload__tip">只能上传mp4文件</div>
+          </el-upload></div>
         </el-form-item>
         <el-form-item label="小镇景点">
           <div>
@@ -96,6 +101,7 @@
 <script setup>
 import { Plus } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
+import { ElLoading } from 'element-plus'
 import { reactive, onMounted, ref, toRaw, watch, inject } from 'vue'
 const axios = inject('$axios')
 const spotname = ref()
@@ -141,6 +147,10 @@ const videoloadSuccess = (response, file, fileList) => {
   // 处理文件上传成功的逻辑
   // 假设后端返回的响应中包含一个字段 url
   data.towninfo.townvideo = response.data;
+  ElMessage({
+    message: '视频上传成功！',
+    type: 'success',
+  })
   console.log(response, file, fileList)
 };
 const midpicuploadSuccess = (response, file, fileList) => {
