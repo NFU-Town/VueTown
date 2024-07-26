@@ -1,6 +1,6 @@
 <template>
     <div class="nei_left" style="position:relative">
-      <p class="shou"><a href="http://www.scery.com">景区服务</a>
+      <p class="shou"><a>景区服务</a>
       </p>
       <p class="n_b_t">{{Data.article.title}}</p>
       <p class="shi_j">来源：{{Data.article.origin}}<span>时间：{{Data.article.ctime}}</span></p>

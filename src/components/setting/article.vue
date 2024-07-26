@@ -181,7 +181,7 @@ const data = reactive({
         fileslist: []
     },
     townoptions:[],
-    articlesort:[   {
+    articlesort:[{
     value: '景区服务',
     label: '景区服务',
   }, {
@@ -211,6 +211,33 @@ const data = reactive({
   },{
     value: '文学书馆',
     label: '文学书馆',
+  },{
+    value: '服务中心',
+    label: '服务中心',
+  },{
+    value: '小镇历史',
+    label: '小镇历史',
+  },{
+    value: '民风民俗',
+    label: '民风民俗',
+  },{
+    value: '纳西古乐',
+    label: '纳西古乐',
+  },{
+    value: '文化院落',
+    label: '文化院落',
+  },{
+    value: '政策法规',
+    label: '政策法规',
+  },{
+    value: '保护指南',
+    label: '保护指南',
+  },{
+    value: '办理流程',
+    label: '办理流程',
+  },{
+    value: '古城维护费',
+    label: '古城维护费',
   }],
 
 

@@ -1,8 +1,8 @@
 <template>
     <div class="nei_left" style="position:relative">
-      <p class="shou"><a>美食小吃</a>
+      <p class="shou"><a href="http://www.scery.com">文化院落</a>
       </p>
-      <p class="n_b_t">{{Data.article.title}}</p>
+      <p class="n_b_t" v-if="Data.article.title">{{Data.article.title}}</p>
       <p class="shi_j">来源：{{Data.article.origin}}<span>时间：{{Data.article.ctime}}</span></p>
       <div class="nr_nr">
         <div v-html="Data.article.content"></div>
@@ -45,7 +45,7 @@
         axios(
           {
     method: 'get',
-    url: '/apis/find/articles?town='+town+'&sort=美食小吃',
+    url: '/apis/find/articles?town='+town+'&sort=文化院落',
   }
       ).then(res=>{
         console.log(res.data.data);
@@ -110,7 +110,11 @@
       font-size: 14px;
       padding-top: 13px;
   }
-  :v-deep(img){
+  .nr_nr{
+  
+  }
+  
+  ::v-deep img{
     max-width:700px;
   }
   </style>

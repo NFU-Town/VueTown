@@ -1,8 +1,7 @@
 <template>
     <div class="nei_left" style="position:relative">
-      <p class="shou"><a>美食小吃</a>
-      </p>
-      <p class="n_b_t">{{Data.article.title}}</p>
+      <p class="shou"><a>服务中心</a></p>
+      <p class="n_b_t" v-if="Data.article.title">{{Data.article.title}}</p>
       <p class="shi_j">来源：{{Data.article.origin}}<span>时间：{{Data.article.ctime}}</span></p>
       <div class="nr_nr">
         <div v-html="Data.article.content"></div>
@@ -10,49 +9,41 @@
       
       <p></p>
       <p></p>
-      <div>
-      <h4>附件：</h4>
-      <h5 v-for="(item, index) in Data.article.files" :key="index" style="color: red;">
-        <a :href="item.url" style="color: red;" target="_blank">{{ item.name }}</a>
-      </h5>
-    </div>
+  
     </div>
   </template>
   
   <script>
-   import { reactive, onMounted, ref, toRaw, watch,inject } from 'vue'
-  import {useStore} from 'vuex'
-  import { computed } from '@vue/runtime-core';
+  import { reactive, onMounted, ref, toRaw, watch,inject } from 'vue'
+  
   export default {
     name: 'article',
     props: {
     },
     setup() {
       const axios = inject('$axios')
-      const store = useStore()
-    const town = computed(() => store.state.town);
       //数据
       const Data = reactive({
-        town:computed(() => town.value),
         article:{
-        title:"",
-        origin:"",
-        time:"",
-        content:""
-      }
+          title:"古管局（公司）传达学习全市文化和旅游高质量发展大会精神",
+          origin:"南苑小镇景区",
+          town:"凤二客家文创小镇",
+          time:"2023-10-23 19:10:22",
+          content:""
+        }
       });
-      const getData=(town)=>{
+      const getData=(id)=>{
         axios(
           {
     method: 'get',
-    url: '/apis/find/articles?town='+town+'&sort=美食小吃',
-  }
+    url: '/apis/find/articles?town=凤二客家文创小镇&sort=服务中心',
+    }
       ).then(res=>{
         console.log(res.data.data);
         Data.article=res.data.data;
       })
       }
-      getData(Data.town);
+      getData();
       return {
         Data
       };
@@ -110,7 +101,8 @@
       font-size: 14px;
       padding-top: 13px;
   }
-  :v-deep(img){
+  
+  ::v-deep img{
     max-width:700px;
   }
   </style>

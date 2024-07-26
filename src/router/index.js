@@ -3,6 +3,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const entryinfo = () => import('../pages/entryinfo.vue')
 const main = () => import('../components/left/main.vue')
 const article = () => import('../components/left/article.vue')
+const login = () => import('../components/login/login.vue')
 
 const bookhotel = () => import('../components/left/bookhotel.vue')
 const hotellist = () => import('../pages/hotellist.vue')
@@ -10,11 +11,25 @@ const service = () => import('../pages/service.vue')
 const foods = () => import('../pages/foods.vue')
 const tips = () => import('../pages/tips.vue')
 const newslist = () => import('../pages/newslist.vue')
+const servicecenter = () => import('../pages/servicecenter.vue')
+const attractions = () => import('../pages/attractions.vue')
+const culture = () => import('../pages/culture.vue')
+const customs = () => import('../pages/customs.vue')
+const ancientmusic = () => import('../pages/ancientmusic.vue')
+const journal = () => import('../pages/journal.vue')
+const library = () => import('../pages/library.vue')
+const twonhistory = () => import('../pages/twonhistory.vue')
+const protection = () => import('../pages/protection.vue')
+const law = () => import('../pages/law.vue')
+const guide = () => import('../pages/guide.vue')
+const procedures = () => import('../pages/procedures.vue')
+const fee = () => import('../pages/fee.vue')
 
 const setting = () => import('../pages/setting.vue')
 const addarticle = () => import('../components/setting/article.vue')
 const towninfo = () => import('../components/setting/towninfo.vue')
 const other = () => import('../components/setting/other.vue')
+
 
 const routes = [
   {
@@ -72,6 +87,71 @@ const routes = [
         path: "tips",
         name: "tips",
         component: tips,
+      },
+      {
+        path: "servicecenter",
+        name: "servicecenter",
+        component: servicecenter,
+      },
+      {
+        path: "attractions",
+        name: "attractions",
+        component: attractions,
+      },
+      {
+        path: "twonhistory",
+        name: "twonhistory",
+        component: twonhistory,
+      },
+      {
+        path: "culture",
+        name: "culture",
+        component: culture,
+      },
+      {
+        path: "customs",
+        name: "customs",
+        component: customs,
+      },
+      {
+        path: "ancientmusic",
+        name: "ancientmusic",
+        component: ancientmusic,
+      },
+      {
+        path: "journal",
+        name: "journal",
+        component: journal,
+      },
+      {
+        path: "library",
+        name: "library",
+        component: library,
+      },
+      {
+        path: "protection",
+        name: "protection",
+        component: protection,
+      },
+      {
+        path: "law",
+        name: "law",
+        component: law,
+      },
+      {
+        path: "guide",
+        name: "guide",
+        component: guide,
+      },
+      {
+        path: "procedures",
+        name: "procedures",
+        component: procedures,
+      },
+      {
+        path: "fee",
+        name: "fee",
+        component: fee,
       }
     ]
   },
@@ -100,6 +180,11 @@ const routes = [
         component: other
       }
     ]
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: login,
   }
 ];
 

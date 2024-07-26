@@ -22,6 +22,7 @@
     "tinymce": "^6.8.3",
     "tinymce-plugin": "^0.0.3-beta.22",
     "vue": "^3.3.4",
+    "vue-i18n": "^10.0.0-beta.5",
     "vue-router": "^4.2.5",
     "vuex": "^4.1.0"
   },

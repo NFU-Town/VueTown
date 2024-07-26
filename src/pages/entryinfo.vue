@@ -27,31 +27,32 @@
               <ul class="erji"></ul>
             </li>
             <li>
-              <a href="https://www.nfu.edu.cn"><span></span>
+              <a><span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" class="dd">景区服务</p>
+                  <p href="javascript:void(0);" @click="$router.push('/entryinfo/service')" class="dd">景区服务</p>
                   <p class="dd2">SERVICE</p>
                 </div>
               </a>
 
               <ul class="erji">
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/tips`)">
                   <li>旅游攻略</li>
                 </a>
-                <a href="javascript:void(0);">
-                  <li>服务指南</li>
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/foods`)">
+                  <li>美食小吃</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/servicecenter`)">
                   <li>服务中心</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/attractions`)">
                   <li>小镇景点</li>
                 </a>
               </ul>
             </li>
 
             <li>
-              <a href="https://www.nfu.edu.cn"><span></span>
+              <a>
+                <span></span>
                 <div class="wen">
                   <p href="javascript:void(0);" class="dd">文化小镇</p>
                   <p class="dd2">CULTURE</p>
@@ -59,52 +60,48 @@
               </a>
 
               <ul class="erji">
-                <a href="javascript:void(0);">
-                  <li>古城历史</li>
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/twonhistory`)">
+                  <li>小镇历史</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/culture`)">
                   <li>文化院落</li>
                 </a>
-                <a href="javascript:void(0);">
+                <!-- <a href="javascript:void(0);">
                   <li>东巴文化</li>
-                </a>
-                <a href="javascript:void(0);">
+                </a> -->
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/customs`)">
                   <li>民风民俗</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/ancientmusic`)">
                   <li>纳西古乐</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/journal`)">
                   <li>文化期刊</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/library`)">
                   <li>文学书馆</li>
-                </a>
-                <a href="javascript:void(0);">
-                  <li>图片标识共享库</li>
                 </a>
               </ul>
             </li>
 
             <li>
-              <a href="https://www.nfu.edu.cn"><span></span>
+              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/protection`)"><span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" class="dd">小镇保护</p>
+                  <p class="dd">小镇保护</p>
                   <p class="dd2">PROTECTION</p>
                 </div>
               </a>
-
               <ul class="erji">
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/law`)">
                   <li>政策法规</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/guide`)">
                   <li>保护指南</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/procedures`)">
                   <li>办事流程</li>
                 </a>
-                <a href="javascript:void(0);">
+                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/fee`)">
                   <li>古城维护费</li>
                 </a>
               </ul>
@@ -121,11 +118,11 @@
               <ul class="erji"></ul>
             </li>
             <li style="padding-left: 20px">
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/newslist`)"  class="ddd" style="width: 55px">
+               <a href="javascript:void(0);" @click="handleClick"  class="ddd" style="width: 55px">
                 切换小镇 </a><br />
-              <a href="https://www.nfu.edu.cn" class="ddd" style="width: 55px">
+              <a href="javascript:void(0);" @click="changeLanguage('en')" class="ddd" style="width: 55px">
                 English </a><br />
-              <a href="https://www.nfu.edu.cn" class="ddd">日本語</a>
+              <a href="javascript:void(0);" @click="changeLanguage('ja')" class="ddd">日本語</a>
             </li>
           </ul>
 
@@ -229,7 +226,7 @@
     <div class="auto">
       <img class="diimg" :src="Data.towninfo.townlogo" />
       <p class="dizhi">
-        <a href="javascript:void(0);" @click="$router.push(`/setting/towninfo`)" style="color: burlywood">管理入口</a><br />
+        <a href="javascript:void(0);" @click="$router.push(`/login`)" style="color: burlywood">管理入口</a><br />
         <a target="_blank" href="https://www.scery.com" style="color: #fefefe">@HaoDong
           Wu&nbsp;&nbsp;Designed</a><br />
         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53070202001194" style="
@@ -253,6 +250,9 @@
 <script>
 import {useStore,mapState} from 'vuex'
 import { reactive, ref, watch, onMounted, onUnmounted,inject,computed } from "vue";
+import { useI18n } from 'vue-i18n';
+import axios from 'axios';
+import { addLocaleMessages } from '@/i18n';
 export default {
   name: "entryinfo",
   props: {},
@@ -260,13 +260,17 @@ export default {
     const store = useStore() 
     const axios = inject('$axios')
     const town = computed(() => store.state.town);
-    watch(town,(nv,ov)=>{
-      gettownData(town.value)
+    watch(town,(nv)=>{
+      gettownData(nv)
     })
     //数据
     const Data = reactive({
-      lunbotu: ["https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221124701.gif", "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125449.png",
-        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125598.png", "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125067.png", "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125911.png"],
+      lunbotu: [
+      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221124701.gif", 
+      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125449.png",
+      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125598.png", 
+      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125067.png", 
+      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125911.png"],
       towninfo: {
     townname: "凤二客家文创小镇",
     tel1: "110",
@@ -295,6 +299,11 @@ export default {
         store.commit('updatetowninfo', res.data.data)
       })
     }
+    const toggleTownDialog = () => {
+     // Assume you have a method to open the dialog in your main component
+     // This might need to be adjusted based on your actual setup
+        store.state.dialogTableVisible = true
+    }
     onMounted(async () => {
       try {
         gettownData(town.value)
@@ -303,9 +312,41 @@ export default {
         console.error('An error occurred while fetching data:', error);
       }
     });
+
+    const handleClick = () => {
+      window.location.reload(true);
+    };
+
+    const { locale } = useI18n();
+
+    // 获取并设置语言信息的函数
+    const fetchAndSetMessages = async (lang) => {
+      try {
+        const response = await axios.get(`/api/translations?lang=${lang}`);
+        const messages = response.data;
+        addLocaleMessages(lang, messages);
+      } catch (error) {
+        // 如果请求失败，可以选择忽略错误，并继续执行语言切换
+        console.warn(`获取语言包${lang}时发生错误，使用默认语言包:`, error);
+      }
+    };
+
+    // 切换语言的函数
+    const changeLanguage = async (lang) => {
+      try {
+        await fetchAndSetMessages(lang);
+      } catch (error) {
+        console.error(`切换语言到${lang}时发生错误:`, error);
+      }
+      locale.value = lang;
+    };
+
+
     return {
       Data,
-      gettownData
+      gettownData,
+      changeLanguage,
+      handleClick
     };
   },
 };

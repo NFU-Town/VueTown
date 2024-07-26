@@ -139,31 +139,30 @@
     <br class="qc" />
   </div>
 
-  <div class="wenhua">
+ <div class="wenhua">
     <p class="gcdt">
       小镇文化<span>CULTURE</span>
       <b class="table">
-        <a class="di_an" href="javascript:">小镇历史</a>
-        <a href="https://www.nfu.edu.cn">东巴文化</a>
-        <a href="https://www.nfu.edu.cn">民风民俗</a>
-        <a href="https://www.nfu.edu.cn">纳西古乐</a>
+        <a
+          v-for="(type, index) in Data.culturetype"
+          :key="index"
+          href="javascript:;"
+          :class="{ active: currentType === type.id }"
+          @click="updateCulture(type.id)"
+        >{{ type.type }}</a>
       </b>
     </p>
     <ul class="table2">
       <li class="show">
         <div class="inli" v-for="(item, index) in Data.culture" :key="index">
           <p class="biao">
-            <a href="javascript:void(0);" @click="$router.push(`/entryinfo/article?id=${item._id}`)">{{item.title}}</a>
+            <a href="javascript:void(0);" @click="$router.push(`/entryinfo/article?id=${item._id}`)">{{ item.title }}</a>
           </p>
           <p class="sm">
-            <a href="javascript:void(0);" @click="$router.push(`/entryinfo/article?id=${item._id}`)"
-              >{{getHtmlPlainText(item.content)}}......</a
-            >
+            <a href="javascript:void(0);" @click="$router.push(`/entryinfo/article?id=${item._id}`)">{{ getHtmlPlainText(item.content) }}......</a>
           </p>
         </div>
-     
       </li>
-
     </ul>
   </div>
 
@@ -171,7 +170,7 @@
     <p class="gcdt gcdt2">
       小镇景点<span>VIEW SPOT</span>
       <span style="margin-left: 510px"
-        ><a href="https://www.nfu.edu.cn">更多</a></span
+        ><a href="javascript:void(0);" @click="$router.push(`/entryinfo/attractions`)">更多</a></span
       >
     </p>
 
@@ -237,7 +236,7 @@
       <p class="gcdt gcdt2">
         古镇文化期刊<span></span>
         <span style="margin-left: 170px"
-          ><a href="https://www.nfu.edu.cn">更多</a></span
+          ><a href="javascript:void(0);" @click="$router.push(`/entryinfo/journal`)">更多</a></span
         >
       </p>
       <div class="in" style="height: 338px">
@@ -249,7 +248,7 @@
       <p class="gcdt gcdt2">
         文学书馆<span>PERIODICAL</span>
         <span style="margin-left: 120px"
-          ><a href="https://www.nfu.edu.cn">更多</a></span
+          ><a href="javascript:void(0);" @click="$router.push(`/entryinfo/library`)">更多</a></span
         >
       </p>
       <div class="in" style="height: 338px">
@@ -264,7 +263,7 @@
 <script>
 import { reactive, ref, watch, onMounted, onUnmounted,inject,defineProps  } from "vue";
 import { computed } from '@vue/runtime-core';
-    import {useStore} from 'vuex'
+import {useStore} from 'vuex'
 export default {
   name: "main",
   props: {},
@@ -313,10 +312,10 @@ export default {
           _id: "12",
         },
       ],
-      culturetype:[{type:"小镇历史",url:"https://www.nfu.edu.cn"},
-      {type:"东巴文化",url:"https://www.nfu.edu.cn"},
-      {type:"民风民俗",url:"https://www.nfu.edu.cn"},
-      {type:"纳西古乐",url:"https://www.nfu.edu.cn"}],
+      culturetype:[
+      {type:"小镇历史"},
+      {type:"民风民俗"},
+      {type:"纳西古乐"}],
       culture:[
         {
           title:"",
@@ -440,7 +439,7 @@ export default {
     });
     watch(town,(nv,ov)=>{
       getxinwenData()
-    getcultureData()
+    getcultureData('1')
     getprotectData()
     getjournalData()
     getlibData()
@@ -468,22 +467,24 @@ export default {
         Data.xinwen = res.data.data.docs;
       })
     }
+    const currentType = ref('1'); // 默认选中的分类ID
+
     const getcultureData = (id) => {
-      axios(
-        {
-          method: 'post',
-          url: '/apis/find/lists',
-          data:{
-            page:1,
-            limit:6,
-            sort:"小镇文化",
-            town:Data.town
-          }
-        }
-      ).then(res => {
+      axios.post('/apis/find/lists', {
+        page: 1,
+        limit: 6,
+        sort: id, // 根据 id 获取文化数据
+        town: Data.town
+      }).then(res => {
         Data.culture = res.data.data.docs;
-      })
+      }).catch(error => {
+        console.error('Error fetching culture data:', error);
+      });
     }
+    const updateCulture = (id) => {
+      currentType.value = id;
+      getcultureData(id);
+    };
     const getprotectData = (id) => {
       axios(
         {
@@ -535,7 +536,7 @@ export default {
     onMounted(async () => {
       try {
         getxinwenData()
-    getcultureData()
+    getcultureData('1')
     getprotectData()
     getjournalData()
     getlibData()
@@ -557,7 +558,9 @@ export default {
     return {
       Data,
       handleHover,
+      updateCulture,
       getHtmlPlainText
+
     };
   },
 };
@@ -1669,12 +1672,12 @@ img {
 .zhimg {
   margin-top: 10px;
 }
-
+/* 
 .table {
   float: right;
   font-weight: normal;
 }
-.table a {
+.table a{
   font-size: 14px;
   color: #7e471b;
   float: left;
@@ -1682,6 +1685,28 @@ img {
   text-align: center;
   border-bottom: 1px #ff9000 solid;
   padding-bottom: 4px;
+}
+.table2 li {
+  width: 733px;
+  height: 256px;
+  background: #fff;
+  margin-top: 8px;
+  padding-left: 0px;
+  padding-top: 10px;
+} */
+ .table a {
+  font-size: 14px;
+  color: #7e471b;
+  float: right;
+  width: 70px;
+  text-align: center;
+  border-bottom: 1px solid;
+  padding-bottom: 4px;
+  border-color: #ff9000;  
+  cursor: pointer;
+}
+.table a.active {
+  border-color:#7e471b;
 }
 .table2 li {
   width: 733px;
