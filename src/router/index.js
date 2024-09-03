@@ -26,7 +26,7 @@ const procedures = () => import('../pages/procedures.vue')
 const fee = () => import('../pages/fee.vue')
 
 const setting = () => import('../pages/setting.vue')
-const addarticle = () => import('../components/setting/article.vue')
+const addarticle = () => import('../components/setting/addarticle.vue')
 const towninfo = () => import('../components/setting/towninfo.vue')
 const other = () => import('../components/setting/other.vue')
 
@@ -165,19 +165,19 @@ const routes = [
         redirect: "/setting/towninfo"
       },
       {
-        path: "addarticle",
+        path: "/setting/addarticle",
         name: "addarticle",
-        component: addarticle
+        component: addarticle,
       },
       {
-        path: "towninfo",
+        path: "/setting/towninfo",
         name: "towninfo",
-        component: towninfo
+        component: towninfo,
       },
       {
-        path: "other",
+        path: "/setting/other",
         name: "other",
-        component: other
+        component: other,
       }
     ]
   },

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@antv/g2": "^5.2.3",
     "@packy-tang/vue-tinymce": "^2.0.0-beta.1",
     "@tinymce-plugin/tinymce-vue": "^0.0.1",
     "@tinymce-plugin/tp-importword": "^0.0.3-beta.8",

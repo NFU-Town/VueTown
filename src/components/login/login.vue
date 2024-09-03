@@ -48,7 +48,7 @@ export default {
 
     const login = () => {
       if (usernameInput.value === username.value && passwordInput.value === password.value) {
-        router.push('/setting'); // 假设跳转到 '/dashboard' 路由
+        router.push('/setting');
       } else {
         error.value = '账号或密码错误';
       }

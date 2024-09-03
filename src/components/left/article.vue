@@ -25,7 +25,6 @@
 
 
 
-
   </div>
 </template>
 
@@ -35,7 +34,7 @@ import { useRoute,useRouter } from 'vue-router';
 export default {
   name: 'article',
   props: {
-  },
+  }, 
   setup() {
     const router = useRouter()
     const query = reactive(router.currentRoute.value.query)

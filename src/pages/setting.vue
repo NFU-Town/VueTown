@@ -7,17 +7,17 @@
             class="el-menu-vertical-demo"
       router
           >
-            <el-menu-item index="/setting/towninfo">
-              <el-icon><icon-menu /></el-icon>
-              <span>小镇信息</span>
+            <el-menu-item index="/setting/other">
+              <el-icon><setting /></el-icon>
+              <span>数据展示</span>
             </el-menu-item>
             <el-menu-item index="/setting/addarticle">
               <el-icon><document /></el-icon>
               <span>文章发布</span>
             </el-menu-item>
-            <el-menu-item index="/setting/other">
-              <el-icon><setting /></el-icon>
-              <span>其他设置</span>
+            <el-menu-item index="/setting/towninfo">
+              <el-icon><icon-menu /></el-icon>
+              <span>小镇信息</span>
             </el-menu-item>
           </el-menu>
         </el-col>

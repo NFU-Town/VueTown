@@ -86,6 +86,7 @@
                 :on-success="spotlistuploadSuccess" :auto-upload="true">
                 <el-button slot="trigger" type="primary">选取文件</el-button>
                 <div slot="tip" class="el-upload__tip">先输入景点名称,再点击上传jpg/png文件</div>
+
               </el-upload>
             </div>
           </div>
@@ -218,7 +219,7 @@ axios(
         console.log(res.data.data)
         // store.commit('updatetowninfo', res.data.data)
       })
-    }
+    } 
 gettownlistData()
 const changetown = (town) => {
   axios(
