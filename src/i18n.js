@@ -1,13 +1,19 @@
-// src/i18n.js
-import { createI18n } from 'vue-i18n'
+import {
+    createI18n
+} from 'vue-i18n';
+import en from './locales/en.json';
+import ja from './locales/ja.json';
+import zh from './locales/zh.json';
+
+const messages = {
+    en,
+    ja,
+    zh
+};
 
 const i18n = createI18n({
     locale: 'zh', // 设置默认语言
-    fallbackLocale: ['en', 'ja'],
-    messages: {}  // 初始为空，可以动态添加
-})
+    messages,
+});
 
-export const addLocaleMessages = (locale, messages) => {
-    i18n.global.setLocaleMessage(locale, messages)
-}
-export default i18n
+export default i18n;
