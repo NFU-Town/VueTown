@@ -1,5 +1,12 @@
 <template>
-  <div class="container" :style="{ background: 'url('+Data.towninfo.townbackground+')', backgroundRepeat: 'repeat', backgroundSize: '100%' }">
+  <div
+    class="container"
+    :style="{
+      background: 'url(' + Data.towninfo.townbackground + ')',
+      backgroundRepeat: 'repeat',
+      backgroundSize: '100%',
+    }"
+  >
     <!-- 头部 -->
     <div class="head">
       <div class="dao_hang">
@@ -8,44 +15,89 @@
           <!-- 导航开始 -->
           <ul>
             <li>
-              <a><span></span>
+              <a
+                ><span></span>
                 <div class="wen">
-                  <a href="javascript:void(0);" @click="$router.push(`/`)" class="dd">首页</a>
-                  <a href="javascript:void(0);" @click="$router.push(`/entryinfo/`)" class="dd2">HOME</a>
+                  <a
+                    href="javascript:void(0);"
+                    @click="$router.push(`/`)"
+                    class="dd"
+                    >{{ $t("home") }}</a
+                  >
+                  <a
+                    href="javascript:void(0);"
+                    @click="$router.push(`/entryinfo/`)"
+                    class="dd2"
+                    >HOME</a
+                  >
                 </div>
               </a>
             </li>
 
             <li>
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/newslist`)"><span></span>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/newslist`)"
+                ><span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" @click="$router.push(`/entryinfo/newslist`)" class="dd">小镇动态</p>
-                  <p href="javascript:void(0);" @click="$router.push(`/entryinfo/newslist`)" class="dd2">NEWS</p>
+                  <p
+                    href="javascript:void(0);"
+                    @click="$router.push(`/entryinfo/newslist`)"
+                    class="dd"
+                  >
+                    {{ $t("news") }}
+                  </p>
+                  <p
+                    href="javascript:void(0);"
+                    @click="$router.push(`/entryinfo/newslist`)"
+                    class="dd2"
+                  >
+                    NEWS
+                  </p>
                 </div>
               </a>
 
               <ul class="erji"></ul>
             </li>
             <li>
-              <a><span></span>
+              <a
+                ><span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" @click="$router.push('/entryinfo/service')" class="dd">景区服务</p>
+                  <p
+                    href="javascript:void(0);"
+                    @click="$router.push('/entryinfo/service')"
+                    class="dd"
+                  >
+                    {{ $t("service") }}
+                  </p>
                   <p class="dd2">SERVICE</p>
                 </div>
               </a>
 
               <ul class="erji">
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/tips`)">
-                  <li>旅游攻略</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/tips`)"
+                >
+                  <li>{{ $t("travel guide") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/foods`)">
-                  <li>美食小吃</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/foods`)"
+                >
+                  <li>{{ $t("Gourmet snacks") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/servicecenter`)">
-                  <li>服务中心</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/servicecenter`)"
+                >
+                  <li>{{ $t("Service Center") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/attractions`)">
-                  <li>小镇景点</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/attractions`)"
+                >
+                  <li>{{ $t("town attractions") }}</li>
                 </a>
               </ul>
             </li>
@@ -54,63 +106,101 @@
               <a>
                 <span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" class="dd">文化小镇</p>
+                  <p href="javascript:void(0);" class="dd">
+                    {{ $t("culture") }}
+                  </p>
                   <p class="dd2">CULTURE</p>
                 </div>
               </a>
 
               <ul class="erji">
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/twonhistory`)">
-                  <li>小镇历史</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/twonhistory`)"
+                >
+                  <li>{{ $t("History town") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/culture`)">
-                  <li>文化院落</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/culture`)"
+                >
+                  <li>{{ $t("Cultural Compounds") }}</li>
                 </a>
                 <!-- <a href="javascript:void(0);">
                   <li>东巴文化</li>
                 </a> -->
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/customs`)">
-                  <li>民风民俗</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/customs`)"
+                >
+                  <li>{{ $t("Folk customs") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/ancientmusic`)">
-                  <li>纳西古乐</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/ancientmusic`)"
+                >
+                  <li>{{ $t("Naxi Gule") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/journal`)">
-                  <li>文化期刊</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/journal`)"
+                >
+                  <li>{{ $t("Cultural Periodicals") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/library`)">
-                  <li>文学书馆</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/library`)"
+                >
+                  <li>{{ $t("Literary Library") }}</li>
                 </a>
               </ul>
             </li>
 
             <li>
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/protection`)"><span></span>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/protection`)"
+                ><span></span>
                 <div class="wen">
-                  <p class="dd">小镇保护</p>
+                  <p class="dd">{{ $t("protection") }}</p>
                   <p class="dd2">PROTECTION</p>
                 </div>
               </a>
               <ul class="erji">
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/law`)">
-                  <li>政策法规</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/law`)"
+                >
+                  <li>{{ $t("Policies regulations") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/guide`)">
-                  <li>保护指南</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/guide`)"
+                >
+                  <li>{{ $t("Conservation Guidelines") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/procedures`)">
-                  <li>办事流程</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/procedures`)"
+                >
+                  <li>{{ $t("Procedures") }}</li>
                 </a>
-                <a href="javascript:void(0);" @click="$router.push(`/entryinfo/fee`)">
-                  <li>古城维护费</li>
+                <a
+                  href="javascript:void(0);"
+                  @click="$router.push(`/entryinfo/fee`)"
+                >
+                  <li>{{ $t("Maintenance Fee") }}</li>
                 </a>
               </ul>
             </li>
 
             <li>
-              <a href="https://www.nfu.edu.cn"><span></span>
+              <a href="https://www.nfu.edu.cn"
+                ><span></span>
                 <div class="wen">
-                  <p href="javascript:void(0);" class="dd">关于团队</p>
+                  <p href="javascript:void(0);" class="dd">
+                    {{ $t("survey") }}
+                  </p>
                   <p class="dd2">SURVEY</p>
                 </div>
               </a>
@@ -118,11 +208,14 @@
               <ul class="erji"></ul>
             </li>
             <li style="padding-left: 20px">
-               <a href="javascript:void(0);" @click="handleClick"  class="ddd" style="width: 55px">
-                切换小镇 </a><br />
-              <a href="javascript:void(0);" @click="changeLanguage('en')" class="ddd" style="width: 55px">
-                English </a><br />
-              <a href="javascript:void(0);" @click="changeLanguage('ja')" class="ddd">日本語</a>
+              <a
+                href="javascript:void(0);"
+                @click="handleClick"
+                class="ddd"
+                style="width: 55px"
+              >
+                {{ $t("switch town") }} </a
+              ><br />
             </li>
           </ul>
 
@@ -132,7 +225,10 @@
     </div>
     <div class="lunbo">
       <el-carousel :interval="4000" height="384px" style="width: 100%">
-        <el-carousel-item v-for="(item, index) in Data.towninfo.pagepiclist" :key="index">
+        <el-carousel-item
+          v-for="(item, index) in Data.towninfo.pagepiclist"
+          :key="index"
+        >
           <el-image :src="item.url" fit="cover" style="height: 384px" />
         </el-carousel-item>
       </el-carousel>
@@ -142,55 +238,78 @@
       <div class="auto" style="position: relative">
         <div class="left">
           <keep-alive>
-          <transition name="fade">
-          <router-view></router-view></transition>
-        </keep-alive>
+            <transition name="fade"> <router-view></router-view></transition>
+          </keep-alive>
         </div>
 
         <div class="right">
           <div class="phone">
             <h3 style="color: #624343; text-align: -webkit-center">
-              小镇旅游监督、投诉、咨询电话
+              {{ $t("Town telephone") }}
             </h3>
             <h2 style="text-align: -webkit-center; color: #624343">
-              {{Data.towninfo.tel1}}
+              {{ Data.towninfo.tel1 }}
             </h2>
             <h4 style="color: #624343; text-align: -webkit-center">
-              从化区旅游发展委员会旅游、投诉电话
+              {{ $t("Conghua telephone") }}
             </h4>
-            <h3 style="text-align: -webkit-center;color: #624343;">
+            <h3 style="text-align: -webkit-center; color: #624343">
               {{ Data.towninfo.tel2 }}
             </h3>
             <h4 style="color: #624343; text-align: -webkit-center">
-              国家旅游服务热线
+              {{ $t("National telephone") }}
             </h4>
-            <h3 style="text-align: -webkit-center; color: #624343">{{Data.towninfo.tel3}}</h3>
+            <h3 style="text-align: -webkit-center; color: #624343">
+              {{ Data.towninfo.tel3 }}
+            </h3>
           </div>
           <!-- 四个框框功能 -->
           <ul class="chaxun">
             <li>
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/service`)"><img
-                  src="@/assets/town_files/li_16.jpg" /></a>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/service`)"
+                ><img src="@/assets/town_files/li_16.jpg"
+              /></a>
             </li>
             <li style="margin-left: 4px">
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/tips`)"><img
-                  src="@/assets/town_files/li_18.jpg" /></a>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/tips`)"
+                ><img src="@/assets/town_files/li_18.jpg"
+              /></a>
             </li>
             <li>
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/foods`)"><img
-                  src="@/assets/town_files/li_26.jpg" /></a>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/foods`)"
+                ><img src="@/assets/town_files/li_26.jpg"
+              /></a>
             </li>
             <li style="margin-left: 4px">
-              <a href="javascript:void(0);" @click="$router.push(`/entryinfo/hotellist`)"><img
-                  src="@/assets/town_files/li_27.jpg" /></a>
+              <a
+                href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/hotellist`)"
+                ><img src="@/assets/town_files/li_27.jpg"
+              /></a>
             </li>
           </ul>
 
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/li_31.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/li_34.jpg" /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/li_31.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/li_34.jpg"
+          /></a>
 
           <div class="shpi">
-            <video id="videoElement" :src="Data.towninfo.townvideo" controls="controls" width="280" height="167">
+            <video
+              id="videoElement"
+              :src="Data.towninfo.townvideo"
+              controls="controls"
+              width="280"
+              height="167"
+            >
               您的浏览器不支持 video 标签。
             </video>
             <!--
@@ -203,18 +322,38 @@
   -->
           </div>
           <div class="shipt">
-            <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/xin.png" /></a>
+            <a href="https://www.nfu.edu.cn"
+              ><img src="@/assets/town_files/xin.png"
+            /></a>
           </div>
 
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/23104144de0u.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/17233456y8zr.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/08203442vp11.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/03094832m3bj.gif" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/20162415a7fi.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/16095431302f.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/02152336864z.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/04101255olmq.jpg" /></a>
-          <a href="https://www.nfu.edu.cn"><img src="@/assets/town_files/262016213g6k.jpg" /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/23104144de0u.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/17233456y8zr.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/08203442vp11.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/03094832m3bj.gif"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/20162415a7fi.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/16095431302f.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/02152336864z.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/04101255olmq.jpg"
+          /></a>
+          <a href="https://www.nfu.edu.cn"
+            ><img src="@/assets/town_files/262016213g6k.jpg"
+          /></a>
         </div>
         <br class="qc" />
       </div>
@@ -226,16 +365,27 @@
     <div class="auto">
       <img class="diimg" :src="Data.towninfo.townlogo" />
       <p class="dizhi">
-        <a href="javascript:void(0);" @click="$router.push(`/login`)" style="color: burlywood">管理入口</a><br />
-        <a target="_blank" href="https://www.scery.com" style="color: #fefefe">@HaoDong
-          Wu&nbsp;&nbsp;Designed</a><br />
-        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53070202001194" style="
+        <a
+          href="javascript:void(0);"
+          @click="$router.push(`/login`)"
+          style="color: burlywood"
+          >管理入口</a
+        ><br />
+        <a target="_blank" href="https://www.scery.com" style="color: #fefefe"
+          >@HaoDong Wu&nbsp;&nbsp;Designed</a
+        ><br />
+        <a
+          target="_blank"
+          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=53070202001194"
+          style="
             display: inline-block;
             text-decoration: none;
             height: 20px;
             line-height: 20px;
             color: #fefefe;
-          "><img src="@/assets/town_files/bei.png" />粤ICP备19129143号-2</a><br />
+          "
+          ><img src="@/assets/town_files/bei.png" />粤ICP备19129143号-2</a
+        ><br />
         地址：广州南方学院
       </p>
       <img class="diimg2" src="@/assets/town_files/li_74.jpg" />
@@ -248,68 +398,75 @@
 </template>
 
 <script>
-import {useStore,mapState} from 'vuex'
-import { reactive, ref, watch, onMounted, onUnmounted,inject,computed } from "vue";
-import { useI18n } from 'vue-i18n';
-import axios from 'axios';
-import { addLocaleMessages } from '@/i18n';
+import { useStore, mapState } from "vuex";
+import {
+  reactive,
+  ref,
+  watch,
+  onMounted,
+  onUnmounted,
+  inject,
+  computed,
+} from "vue";
+import { useI18n } from "vue-i18n";
+import axios from "axios";
+
+// import { addLocaleMessages } from "@/i18n";
 export default {
   name: "entryinfo",
   props: {},
   setup() {
-    const store = useStore() 
-    const axios = inject('$axios')
+    const store = useStore();
+    const axios = inject("$axios");
     const town = computed(() => store.state.town);
-    watch(town,(nv)=>{
-      gettownData(nv)
-    })
+    watch(town, (nv) => {
+      gettownData(nv);
+    });
     //数据
     const Data = reactive({
       lunbotu: [
-      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221124701.gif", 
-      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125449.png",
-      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125598.png", 
-      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125067.png", 
-      "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125911.png"],
+        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221124701.gif",
+        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125449.png",
+        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125598.png",
+        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125067.png",
+        "https://pic-1257960926.cos.ap-guangzhou.myqcloud.com/town/202402221125911.png",
+      ],
       towninfo: {
-    townname: "凤二客家文创小镇",
-    tel1: "110",
-    tel2: "110",
-    tel3: "110",
-    townbackground: "",
-    townvideo: "",
-    townlogo: "",
-    pagepiclist: [],
-    townsiderpic: "",
-    midpiclist: [],
-    spotlist: []
-  }
+        townname: "凤二客家文创小镇",
+        tel1: "110",
+        tel2: "110",
+        tel3: "110",
+        townbackground: "",
+        townvideo: "",
+        townlogo: "",
+        pagepiclist: [],
+        townsiderpic: "",
+        midpiclist: [],
+        spotlist: [],
+      },
     });
     const gettownData = (town) => {
-      axios(
-        {
-          method: 'post',
-          url: '/apis/find/findtown',
-          data: {
-            town: town
-          }
-        }
-      ).then(res => {
+      axios({
+        method: "post",
+        url: "/apis/find/findtown",
+        data: {
+          town: town,
+        },
+      }).then((res) => {
         Data.towninfo = res.data.data;
-        store.commit('updatetowninfo', res.data.data)
-      })
-    }
+        store.commit("updatetowninfo", res.data.data);
+      });
+    };
     const toggleTownDialog = () => {
-     // Assume you have a method to open the dialog in your main component
-     // This might need to be adjusted based on your actual setup
-        store.state.dialogTableVisible = true
-    }
+      // Assume you have a method to open the dialog in your main component
+      // This might need to be adjusted based on your actual setup
+      store.state.dialogTableVisible = true;
+    };
     onMounted(async () => {
       try {
-        gettownData(town.value)
-
+        gettownData(town.value);
       } catch (error) {
-        console.error('An error occurred while fetching data:', error);
+        console.error("An error occurred while fetching data:", error);
       }
     });
 
@@ -341,22 +498,23 @@ export default {
       locale.value = lang;
     };
 
-
     return {
       Data,
       gettownData,
       changeLanguage,
-      handleClick
+      handleClick,
     };
   },
 };
 </script>
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.5s ease;
 }
-.fade-enter-from, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -466,7 +624,7 @@ img {
   width: 100%;
 }
 
-.dao_hang ul>li {
+.dao_hang ul > li {
   width: 89px;
   height: 20px;
   border-bottom: none;
@@ -535,6 +693,9 @@ img {
   display: inline-block;
   vertical-align: top;
   line-height: 15.5px;
+  writing-mode: vertical-rl; /* 从上到下，从右到左 */
+  /* 为了更好的视觉效果，可以设置文字的对齐方式 */
+  text-align: right; /* 右对齐 */
 }
 
 .dd2 {
@@ -565,8 +726,6 @@ img {
   padding: 2px 2px;
 }
 
-
-
 .wai {
   width: 100%;
   min-width: 1100px;
@@ -589,7 +748,7 @@ img {
   margin-left: 80px;
 }
 
-.right>a {
+.right > a {
   display: block;
   margin-top: 7px;
 }
@@ -965,7 +1124,7 @@ img {
   color: red;
 }
 
-.hhh>p {
+.hhh > p {
   margin-top: 30px;
 }
 
@@ -1214,7 +1373,7 @@ img {
   margin-top: 10px;
 }
 
-.xianlu li>img {
+.xianlu li > img {
   float: left;
   width: 402px;
   height: 135px;
