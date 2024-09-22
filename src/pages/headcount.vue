@@ -1,12 +1,10 @@
 <template>
-  <div>
+  <div class="nei_left" style="position:relative">
+    <p class="shou"><a>古镇实时人数</a>
+      </p>
     <!-- 饼图容器 -->
     <div ref="chartContainer1" style="width: 80%; height: 300px; margin-bottom: 20px;"></div>
     <!-- 柱状图和折线图容器 -->
-    <div style="display: flex; justify-content: space-between;">
-      <div ref="chartContainer2" style="width: 49%; height: 400px;"></div>
-      <div ref="chartContainer3" style="width: 49%; height: 400px;"></div>
-    </div>
   </div>
 </template>
 
@@ -16,8 +14,6 @@ import { Chart } from '@antv/g2';
 import axios from 'axios';
 
 const chartContainer1 = ref(null);
-const chartContainer2 = ref(null);
-const chartContainer3 = ref(null);
 
 // 动态数据
 const pieChartData = ref([
@@ -25,27 +21,7 @@ const pieChartData = ref([
   { type: '月访问量', count: 0, color: '#0a9afe' },
 ]);
 
-// const barChartData = ref([
-//   { town: '凤二客家文创小镇', number: 38 },
-//   { town: '锦洞桃花小镇', number: 52 },
-//   { town: '莲麻-特色古镇', number: 61 },
-//   { town: '西塘童话小镇', number: 145 },
-//   { town: '罗洞工匠小镇', number: 48 },
-//   { town: '南药小镇', number: 38 },
-// ]);
-const barChartData = ref([]);
-
-const lineChartData = ref([
-  { date: '16号', number: 20 },
-  { date: '17号', number: 40 },
-  { date: '18号', number: 32 },
-  { date: '19号', number: 68 },
-  { date: '20号', number: 130 },
-  { date: '21号', number: 99 },
-  { date: '22号', number: 7 },
-])
-
-let chart1, chart2, chart3;
+let chart1;
 
 const fetchVisitData = async () => {
   try {
@@ -53,31 +29,17 @@ const fetchVisitData = async () => {
     const { dailyVisits, monthlyVisits } = response.data;
     // 更新饼图数据
     pieChartData.value = [
-      { type: '日访问量', count: dailyVisits, color: '#0a9afe' },
-      { type: '月访问量', count: monthlyVisits, color: '#0a9afe' },
+      { type: '当日人数访问量', count: dailyVisits, color: '#0a9afe' },
+      { type: '当月人数访问量', count: monthlyVisits, color: '#0a9afe' },
     ];
   } catch (error) {
     console.error('获取访问数据失败:', error);
   }
 };
 
-const fetchTownArticleCounts = async () => {
-  try {
-    const response = await axios({method:'get',url:'/apis/townarticlecounts'});
-    const townArticleCounts = response.data; 
-    barChartData.value = townArticleCounts.map(town => ({
-      town: town.town,
-      number: town.count,
-    }));
-  } catch (error) {
-    console.error('获取小镇文章数目失败:', error);
-  }
-};
 onMounted(async () => {
   await fetchVisitData(); // 页面加载时获取动态数据 
-  await fetchTownArticleCounts(); //一样
-
-  // 饼图
+// 饼图
   chart1 = new Chart({
     container: chartContainer1.value,
     autoFit: true,
@@ -121,7 +83,7 @@ onMounted(async () => {
       .encode('text', 'type')
       .style('textAlign', 'center')
       .style('textBaseline', 'middle')
-      .style('fontSize', 20)
+      .style('fontSize', 17)
       .style('color', '#8c8c8c')
       .style('x', '50%')
       .style('y', '50%')
@@ -149,56 +111,26 @@ onMounted(async () => {
   watch(pieChartData, (newData) => {
     renderPieChart(newData);
   });
-
-  // 柱状图
-  chart2 = new Chart({
-    container: chartContainer2.value,
-    autoFit: true,
-  });
-
-  const renderBarChart = (data) => {
-    chart2.clear();
-    chart2.data(data);
-    chart2
-      .interval()
-      .encode('x', 'town')
-      .encode('y', 'number')
-      .scale('x', { padding: 0.3 });
-    chart2.render();
-  };
-
-  renderBarChart(barChartData.value);
-
-  watch(barChartData, (newData) => {
-    renderBarChart(newData);
-  });
-
-  // 折线图
-  chart3 = new Chart({
-    container: chartContainer3.value,
-    autoFit: true,
-  });
-
-  const renderLineChart = (data) => {
-    chart3.clear();
-    chart3
-      .data(data)
-      .encode('x', 'date')
-      .encode('y', 'number')
-      .scale('x', { range: [0, 1] })
-      .scale('y', { domainMin: 0, nice: true });
-    chart3.line().label({
-      text: 'value',
-      style: { dx: -10, dy: -12 },
-    });
-    chart3.point().style('fill', 'white').tooltip(false);
-    chart3.render();
-  };
-
-  renderLineChart(lineChartData.value);
-
-  watch(lineChartData, (newData) => {
-    renderLineChart(newData);
-  });
 });
 </script>
+<style scoped>
+  .nei_left {
+    width: 800px;
+    float: left;
+    padding: 13px 25px;
+    background: #fff;
+    min-height: 800px;
+    height: auto;
+    padding-bottom: 30px;
+    font-size: 16px;
+  }
+  .nei_left .shou {
+      font-size: 16px;
+      color: #785f4b;
+      padding-bottom: 8px;
+      border-bottom: 1px #785f4b solid;
+      font-weight: 500;
+  }
+</style>
+
+

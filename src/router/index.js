@@ -13,7 +13,7 @@ const tips = () => import('../pages/tips.vue')
 const newslist = () => import('../pages/newslist.vue')
 const servicecenter = () => import('../pages/servicecenter.vue')
 const attractions = () => import('../pages/attractions.vue')
-const culture = () => import('../pages/culture.vue')
+const commodity = () => import('../pages/commodity.vue')
 const customs = () => import('../pages/customs.vue')
 const ancientmusic = () => import('../pages/ancientmusic.vue')
 const journal = () => import('../pages/journal.vue')
@@ -24,6 +24,7 @@ const law = () => import('../pages/law.vue')
 const guide = () => import('../pages/guide.vue')
 const procedures = () => import('../pages/procedures.vue')
 const fee = () => import('../pages/fee.vue')
+const headcount = () => import('../pages/headcount.vue')
 
 const setting = () => import('../pages/setting.vue')
 const addarticle = () => import('../components/setting/addarticle.vue')
@@ -104,9 +105,9 @@ const routes = [
         component: twonhistory,
       },
       {
-        path: "culture",
-        name: "culture",
-        component: culture,
+        path: "commodity",
+        name: "commodity",
+        component: commodity,
       },
       {
         path: "customs",
@@ -152,6 +153,11 @@ const routes = [
         path: "fee",
         name: "fee",
         component: fee,
+      },
+      {
+        path: "headcount",
+        name: "headcount",
+        component: headcount,
       }
     ]
   },

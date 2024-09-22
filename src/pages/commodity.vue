@@ -1,6 +1,6 @@
 <template>
     <div class="nei_left" style="position:relative">
-      <p class="shou"><a href="http://www.scery.com">文化院落</a>
+      <p class="shou"><a>特色商品</a>
       </p>
       <p class="n_b_t" v-if="Data.article.title">{{Data.article.title}}</p>
       <p class="shi_j">来源：{{Data.article.origin}}<span>时间：{{Data.article.ctime}}</span></p>
@@ -45,7 +45,7 @@
         axios(
           {
     method: 'get',
-    url: '/apis/find/articles?town='+town+'&sort=文化院落',
+    url: '/apis/find/articles?town='+town+'&sort=特色商品',
   }
       ).then(res=>{
         console.log(res.data.data);

@@ -122,9 +122,9 @@
                 </a>
                 <a
                   href="javascript:void(0);"
-                  @click="$router.push(`/entryinfo/culture`)"
+                  @click="$router.push(`/entryinfo/commodity`)"
                 >
-                  <li>{{ $t("Cultural Compounds") }}</li>
+                  <li>{{ $t("Cultural commodity") }}</li>
                 </a>
                 <!-- <a href="javascript:void(0);">
                   <li>东巴文化</li>
@@ -295,10 +295,11 @@
             </li>
           </ul>
 
-          <a href="https://www.nfu.edu.cn"
+          <!-- 无用标签 -->
+          <a 
             ><img src="@/assets/town_files/li_31.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a 
             ><img src="@/assets/town_files/li_34.jpg"
           /></a>
 
@@ -322,36 +323,36 @@
   -->
           </div>
           <div class="shipt">
-            <a href="https://www.nfu.edu.cn"
+            <a 
               ><img src="@/assets/town_files/xin.png"
             /></a>
           </div>
 
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://www.ihchina.cn/index.html"
             ><img src="@/assets/town_files/23104144de0u.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a 
             ><img src="@/assets/town_files/17233456y8zr.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="javascript:void(0);" @click="$router.push(`/entryinfo/headcount`)"
             ><img src="@/assets/town_files/08203442vp11.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a 
             ><img src="@/assets/town_files/03094832m3bj.gif"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://www.chinacourt.org/index.shtml"
             ><img src="@/assets/town_files/20162415a7fi.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://www.12348.gov.cn/#/homepage"
             ><img src="@/assets/town_files/16095431302f.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://qspfw.moe.gov.cn/index.html"
             ><img src="@/assets/town_files/02152336864z.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://www.bing.com/ck/a?!&&p=1c62ca1b35af2752JmltdHM9MTcyNjk2MzIwMCZpZ3VpZD0yMGQ5MzgyYi1mNTkxLTYwYmQtMjgxMi0yOWNmZjQ0MzYxMjYmaW5zaWQ9NTI0NQ&ptn=3&ver=2&hsh=3&fclid=20d9382b-f591-60bd-2812-29cff4436126&psq=%e5%bf%97%e6%84%bf%e8%80%85%e7%bd%91%e7%ab%99%e5%ae%98%e7%bd%91&u=a1aHR0cDovL3d3dy56Z3p5ei5vcmcuY24v&ntb=1"
             ><img src="@/assets/town_files/04101255olmq.jpg"
           /></a>
-          <a href="https://www.nfu.edu.cn"
+          <a href="https://www.gov.cn/"
             ><img src="@/assets/town_files/262016213g6k.jpg"
           /></a>
         </div>
