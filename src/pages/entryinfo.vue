@@ -185,18 +185,18 @@
                 >
                   <li>{{ $t("Procedures") }}</li>
                 </a>
-                <a
+                <!-- <a
                   href="javascript:void(0);"
                   @click="$router.push(`/entryinfo/fee`)"
                 >
                   <li>{{ $t("Maintenance Fee") }}</li>
-                </a>
+                </a> -->
               </ul>
             </li>
 
             <li>
-              <a href="https://www.nfu.edu.cn"
-                ><span></span>
+              <a href="javascript:void(0);"
+                @click="$router.push(`/entryinfo/team`)"><span></span>
                 <div class="wen">
                   <p href="javascript:void(0);" class="dd">
                     {{ $t("survey") }}

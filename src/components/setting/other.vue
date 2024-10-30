@@ -25,14 +25,7 @@ const pieChartData = ref([
   { type: '月访问量', count: 0, color: '#0a9afe' },
 ]);
 
-// const barChartData = ref([
-//   { town: '凤二客家文创小镇', number: 38 },
-//   { town: '锦洞桃花小镇', number: 52 },
-//   { town: '莲麻-特色古镇', number: 61 },
-//   { town: '西塘童话小镇', number: 145 },
-//   { town: '罗洞工匠小镇', number: 48 },
-//   { town: '南药小镇', number: 38 },
-// ]);
+
 const barChartData = ref([]);
 
 const lineChartData = ref([

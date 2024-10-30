@@ -104,8 +104,10 @@ import { Plus } from '@element-plus/icons-vue'
 import { ElMessage } from 'element-plus'
 import { ElLoading } from 'element-plus'
 import { reactive, onMounted, ref, toRaw, watch, inject } from 'vue'
-const axios = inject('$axios')
-const spotname = ref()
+import { useRoute } from 'vue-router';
+const axios = inject('$axios');
+const spotname = ref();
+const uniqueKey = ref(0);
 const data = reactive({
   actionurl: axios.defaults.baseURL + "/apis/upload/file",
   towninfo: {
@@ -193,19 +195,18 @@ const uploaddata = () => {
     })
   })
 }
-const gettownData = (town) => {
-  axios(
-    {
-      method: 'post',
-      url: '/apis/find/findtown',
-      data: {
-        town: "凤二客家文创小镇"
-      }
+const gettownData = () => {
+  axios({
+    method: 'post',
+    url: '/apis/find/findtown',
+    data: { town: "凤二客家文创小镇" }
+  }).then(res => {
+    if (res.data.data) {
+      // 逐项更新字段
+      Object.assign(data.towninfo, res.data.data);
     }
-  ).then(res => {
-    data.towninfo = res.data.data;
-  })
-}
+  });
+};
 
 const gettownlistData = () => {
 axios(
@@ -222,34 +223,52 @@ axios(
     } 
 gettownlistData()
 const changetown = (town) => {
-  axios(
-    {
-      method: 'post',
-      url: '/apis/find/findtown',
-      data: {
-        town: town
-      }
+  axios({
+    method: 'post',
+    url: '/apis/find/findtown',
+    data: { town: town }
+  }).then(res => {
+    if (res.data.data) {
+      // 仅更新存在的字段，不覆盖未返回的字段
+      Object.assign(data.towninfo, res.data.data);
+    } else {
+      // 若数据为空则初始化
+      data.towninfo = {
+        ...data.towninfo,
+        townname: town,
+        tel1: "",
+        tel2: "",
+        tel3: "",
+        townbackground: "",
+        townvideo: "",
+        townlogo: "",
+        pagepiclist: [],
+        townsiderpic: "",
+        midpiclist: [],
+        spotlist: []
+      };
     }
-  ).then(res => {
-    if(res.data.data){
-      data.towninfo = res.data.data;
-    }else{
-      data.towninfo ={
-    townname: town,
-    tel1: "",
-    tel2: "",
-    tel3: "",
-    townbackground: "",
-    townvideo: "",
-    townlogo: "",
-    pagepiclist: [],
-    townsiderpic: "",
-    midpiclist: [],
-    spotlist: []
+  });
+};
+const route = useRoute();
+
+const fetchData = () => {
+  // 在这里添加获取数据的逻辑
+  console.log('Fetching data for addarticle');
+};
+
+onMounted(() => {
+  fetchData();
+});
+
+// 监听路由变化
+watch(
+  () => route.params,
+  () => {
+    uniqueKey.value += 1; // 更新 key，触发重新渲染
+    fetchData();
   }
-    }
-  })
-}
+);
 </script>
 
 <style scoped>

@@ -77,6 +77,8 @@
 import Editor from '@tinymce/tinymce-vue'
 import { ElMessage } from 'element-plus'
 import { reactive, onMounted, ref, toRaw, watch,inject } from 'vue'
+import { useRoute } from 'vue-router';
+const route = useRoute();
 const axios = inject('$axios')
 const props = defineProps(['value'])
 const emit = defineEmits(['updateValue'])
@@ -224,8 +226,8 @@ const data = reactive({
     value: '纳西古乐',
     label: '纳西古乐',
   },{
-    value: '文化院落',
-    label: '文化院落',
+    value: '特色商品',
+    label: '特色商品',
   },{
     value: '政策法规',
     label: '政策法规',
@@ -236,8 +238,8 @@ const data = reactive({
     value: '办理流程',
     label: '办理流程',
   },{
-    value: '古城维护费',
-    label: '古城维护费',
+    value: '关于团队',
+    label: '关于团队',
   }],
 
 
@@ -325,6 +327,19 @@ const handleUpload=(select)=>{
   data.article.fileslist = [...data.article.fileslist];
   console.log(response, file, fileList)
 };
+const fetchData = () => {
+  // 在这里添加获取数据的逻辑
+  console.log('Fetching data for addarticle');
+};
+
+onMounted(() => {
+  fetchData();
+});
+
+// 监听路由变化
+watch(() => route.params, (newParams, oldParams) => {
+  fetchData();
+});
 </script>
 
 <style scoped>

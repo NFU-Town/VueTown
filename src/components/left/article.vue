@@ -9,11 +9,6 @@
     <div class="nr_nr">
       <div v-html="Data.article.content"></div>
     </div>
-    <div class="nr_nr">
-      <div v-html="Data.article.content"></div>
-    </div>
-    <p></p>
-    <p></p>
     <div>
       <h4>附件：</h4>
       <h5 v-for="(item, index) in Data.article.files" :key="index" style="color: red;">
@@ -21,18 +16,19 @@
       </h5>
     </div>
     <div class="dix">
-      <a v-if="previousArticle" :href="'/articles/' + previousArticle.id">
+      <router-link v-if="previousArticle" :to="{ name: 'article', query: { id: previousArticle.id } }">
         上一篇: {{ previousArticle.title }}
-      </a>
-      <a v-if="nextArticle" :href="'/articles/' + nextArticle.id">
+      </router-link>
+      <router-link v-if="nextArticle" :to="{ name: 'article', query: { id: nextArticle.id } }">
         下一篇: {{ nextArticle.title }}
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
 
+
 <script>
-import { reactive, onMounted, ref, inject } from 'vue';
+import { reactive, onMounted, ref, inject, watch } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default {
@@ -50,6 +46,7 @@ export default {
         ctime: '',
         content: '',
         files: [],
+        town: '' // 确保 town 存在于文章数据中
       },
     });
 
@@ -70,14 +67,24 @@ export default {
       axios({
         method: 'get',
         url: `/apis/find/pages?id=${query.id}&town=${Data.article.town}&sort=ctime`,
-      }).then((res) => {
+      })
+      .then((res) => {
         previousArticle.value = res.data.data.previous;
         nextArticle.value = res.data.data.next;
+      })
+      .catch(error => {
+        console.error('Error fetching page data:', error);
       });
     };
 
     onMounted(() => {
       getData();
+    });
+
+    // 监视路由的变化
+    watch(() => router.currentRoute.value.query, (newQuery) => {
+      query.id = newQuery.id; // 更新当前的 id
+      getData(); // 重新获取数据
     });
 
     return {
@@ -137,8 +144,6 @@ a {
   margin-left: 29px;
   font-size: 14px;
   padding-top: 13px;
-}
-.nr_nr {
 }
 ::v-deep img {
   max-width: 700px;

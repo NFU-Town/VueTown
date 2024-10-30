@@ -2,6 +2,7 @@
 
 <template>
   <span><LanguageSwitcher></LanguageSwitcher></span>
+
   <div class="main">
     <el-dialog
       v-model="Data.dialogTableVisible"
@@ -19,7 +20,7 @@
       </div>
     </el-dialog>
     <keep-alive>
-      <router-view></router-view>
+      <router-view :key="$route.fullPath"></router-view>
     </keep-alive>
   </div>
   <div class="music">

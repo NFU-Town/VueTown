@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import teamVue from '../pages/team.vue'
 
 const entryinfo = () => import('../pages/entryinfo.vue')
 const main = () => import('../components/left/main.vue')
@@ -25,12 +26,16 @@ const guide = () => import('../pages/guide.vue')
 const procedures = () => import('../pages/procedures.vue')
 const fee = () => import('../pages/fee.vue')
 const headcount = () => import('../pages/headcount.vue')
+const team = () => import('../pages/team.vue')
 
 const setting = () => import('../pages/setting.vue')
 const addarticle = () => import('../components/setting/addarticle.vue')
 const towninfo = () => import('../components/setting/towninfo.vue')
 const other = () => import('../components/setting/other.vue')
-
+const hotel = () => import('../components/setting/hotel.vue')
+const merchant = () => import('../components/setting/merchant.vue')
+const register = () => import('../components/setting/register.vue')
+const store = () => import('../components/setting/store.vue')
 
 const routes = [
   {
@@ -158,7 +163,17 @@ const routes = [
         path: "headcount",
         name: "headcount",
         component: headcount,
-      }
+      },
+      {
+        path: "/articles/:id",
+        name: "articleDetail",
+        component: article,
+      },
+      {
+        path: "team",
+        name: "team",
+        component: team,
+      },
     ]
   },
   {
@@ -184,6 +199,26 @@ const routes = [
         path: "/setting/other",
         name: "other",
         component: other,
+      },
+      {
+        path: "/setting/hotel",
+        name: "hotel",
+        component: hotel,
+      },
+      {
+        path: "/setting/merchant",
+        name: "merchant",
+        component: merchant,
+      },
+      {
+        path: "/setting/register",
+        name: "register",
+        component: register,
+      },
+      {
+        path: "/setting/store",
+        name: "store",
+        component: store,
       }
     ]
   },
