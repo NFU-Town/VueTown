@@ -146,10 +146,10 @@
         <a
           v-for="(type, index) in Data.culturetype"
           :key="index"
-          href="javascript:;"
           :class="{ active: currentType === type.id }"
-          @click="updateCulture(type.id)"
-        >{{ type.type }}</a>
+          @click="$router.push(type.path)"
+          >{{ type.type }}</a
+        >
       </b>
     </p>
     <ul class="table2">
@@ -312,10 +312,11 @@ export default {
           _id: "12",
         },
       ],
-      culturetype:[
-      {type:"小镇历史"},
-      {type:"民风民俗"},
-      {type:"纳西古乐"}],
+      culturetype: [
+        { type: "小镇历史", path: "/entryinfo/twonhistory" },
+        { type: "民风民俗", path: "/entryinfo/customs" },
+        { type: "纳西古乐", path: "/entryinfo/ancientmusic" },
+      ],
       culture:[
         {
           title:"",
