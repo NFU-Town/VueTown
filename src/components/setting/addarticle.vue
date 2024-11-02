@@ -309,7 +309,7 @@ const handleUpload=(select)=>{
           headers: {
             'Content-Type': 'multipart/form-data' // 指定请求头为多部分形式
           },
-        })
+        }) 
         .then(response => {
           data.article.content=response.data.data; // 输出服务器返回的结果
         })

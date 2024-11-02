@@ -5,6 +5,7 @@ const entryinfo = () => import('../pages/entryinfo.vue')
 const main = () => import('../components/left/main.vue')
 const article = () => import('../components/left/article.vue')
 const login = () => import('../components/login/login.vue')
+const sign = () => import('../components/login/sign.vue')
 
 const bookhotel = () => import('../components/left/bookhotel.vue')
 const hotellist = () => import('../pages/hotellist.vue')
@@ -226,6 +227,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: login,
+  },
+  {
+    path: "/sign",
+    name: "sign",
+    component: sign,
   }
 ];
 

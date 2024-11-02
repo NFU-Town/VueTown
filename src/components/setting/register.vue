@@ -18,7 +18,6 @@
         </el-select>
       </el-form-item>
       <div class="submit" style="padding: 20px 0; text-align: center;">
-        <el-button type="success" @click="uploaddata">注册</el-button>
         <el-button type="danger" @click="deleteAccount">删除账号</el-button>
       </div>
     </el-form>
@@ -54,21 +53,6 @@ onMounted(() => {
     data.townoptions = res.data.data.map(item => ({ value: item.townname, label: item.townname }));
   });
 });
-
-const uploaddata = () => {
-  axios.post('/apis/registerupdate', data.register).then(() => {
-    ElMessage({ message: '注册成功！', type: 'success' });
-    // 清空表单内容
-    Object.assign(data.register, {
-      account: "",
-      password: "",
-      town: "",
-      sort: "",
-    });
-  }).catch(error => {
-    ElMessage({ message: '注册失败！' + error.message, type: 'error' });
-  });
-};
 
 const deleteAccount = () => {
   axios.post('/apis/registerdelete', { account: data.register.account }).then(() => {
