@@ -45,9 +45,7 @@
   <div class="wenhua">
     <p class="gcdt">
       文化院落<span>CULTURAL COURTYARD</span>
-      <span style="margin-left: 430px"
-        ><a href="https://www.nfu.edu.cn">更多</a></span
-      >
+      <span style="margin-left: 430px"></span>
     </p>
 
     <ul class="baiye">

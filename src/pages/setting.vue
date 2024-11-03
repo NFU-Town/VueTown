@@ -14,13 +14,17 @@
               <el-icon><document /></el-icon>
               <span>文章发布</span>
             </el-menu-item>
-            <el-menu-item index="/setting/merchant">
-              <el-icon><icon-menu /></el-icon>
-              <span>商店信息</span>
+            <el-menu-item index="/setting/mgarticle">
+              <el-icon><setting /></el-icon>
+              <span>文章管理</span>
             </el-menu-item>
             <el-menu-item index="/setting/register">
               <el-icon><document /></el-icon>
-              <span>用户注册</span>
+              <span>用户管理</span>
+            </el-menu-item>
+            <el-menu-item index="/setting/merchant">
+              <el-icon><icon-menu /></el-icon>
+              <span>商店信息</span>
             </el-menu-item>
             <el-menu-item index="/setting/other">
               <el-icon><setting /></el-icon>

@@ -17,33 +17,21 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-row>
-        <el-col :span="12"> <!-- 修改为12，确保与上面保持一致 -->
-          <el-form-item label="用户名">
-            <el-input v-model="data.register.account" placeholder="请输入用户名" clearable style="width: 90%;"></el-input>
-          </el-form-item>
-        </el-col>
-        <el-col :span="12"> <!-- 修改为12，确保与上面保持一致 -->
-          <el-form-item label="邮箱">
-            <el-input v-model="data.register.email" type="email" placeholder="请输入邮箱" clearable  style="width: 90%;"></el-input>
-          </el-form-item>
-        </el-col>
-      </el-row>
     </el-form>
     <el-table :data="tableData" style="width: 100%; margin-top: 20px;" stripe>
-      <el-table-column label="用户名" width="180" align="center">
+      <el-table-column label="发布时间" width="180" align="center">
         <template v-slot="scope">
-          <span>{{ scope.row.account }}</span>
+          <span>{{ scope.row.publishTime }}</span>
+        </template>
+      </el-table-column>
+      <el-table-column label="文章标题" width="180" align="center">
+        <template v-slot="scope">
+          <span>{{ scope.row.title }}</span>
         </template>
       </el-table-column>
       <el-table-column label="小镇" width="180" align="center">
         <template v-slot="scope">
           <span>{{ scope.row.town }}</span>
-        </template>
-      </el-table-column>
-      <el-table-column label="邮箱" width="180" align="center">
-        <template v-slot="scope">
-          <span>{{ scope.row.email }}</span>
         </template>
       </el-table-column>
       <el-table-column label="分类" width="180" align="center">
@@ -71,30 +59,81 @@ const axios = inject('$axios');
 const data = reactive({
   actionurl: axios.defaults.baseURL + "/apis/upload/file",
   register: {
-    account: "", 
-    email: "",  // 修改为邮箱
-    password: "", 
     town: "",
-    sort: "",
+    sort: ""
   },
-  townoptions: [],
-  articlesort: [
-    { value: '客栈', label: '客栈' },
-    { value: '商店', label: '商店' },
-  ],
+   articlesort:[{
+    value: '景区服务',
+    label: '景区服务',
+  }, {
+    value: '旅游攻略',
+    label: '旅游攻略',
+  }, {
+    value: '美食小吃',
+    label: '美食小吃',
+  },{
+    value: '小镇动态',
+    label: '小镇动态',
+  },{
+    value: '文化院落',
+    label: '文化院落',
+  },{
+    value: '小镇文化',
+    label: '小镇文化',
+  },{
+    value: '小镇景点',
+    label: '小镇景点',
+  },{
+    value: '小镇保护',
+    label: '小镇保护',
+  },{
+    value: '小镇文化期刊',
+    label: '小镇文化期刊',
+  },{
+    value: '文学书馆',
+    label: '文学书馆',
+  },{
+    value: '服务中心',
+    label: '服务中心',
+  },{
+    value: '小镇历史',
+    label: '小镇历史',
+  },{
+    value: '民风民俗',
+    label: '民风民俗',
+  },{
+    value: '纳西古乐',
+    label: '纳西古乐',
+  },{
+    value: '特色商品',
+    label: '特色商品',
+  },{
+    value: '政策法规',
+    label: '政策法规',
+  },{
+    value: '保护指南',
+    label: '保护指南',
+  },{
+    value: '办理流程',
+    label: '办理流程',
+  },{
+    value: '关于团队',
+    label: '关于团队',
+  }],
+
 });
 
 const tableData = reactive([
   {
-    account: '王小虎',
+    publishTime: '2024-11-01',
+    title: '文章标题1',
     town: '上海市普陀区',
-    email: 'example@domain.com',
     sort: '客栈'
   },
   {
-    account: '李小明',
+    publishTime: '2024-11-02',
+    title: '文章标题2',
     town: '北京市朝阳区',
-    email: 'example@domain.com',
     sort: '商店'
   }
 ]);

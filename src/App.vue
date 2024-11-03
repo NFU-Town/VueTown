@@ -20,7 +20,7 @@
       </div>
     </el-dialog>
     <keep-alive>
-      <router-view :key="$route.fullPath"></router-view>
+      <router-view ></router-view>
     </keep-alive>
   </div>
   <div class="music">

@@ -37,6 +37,8 @@ const hotel = () => import('../components/setting/hotel.vue')
 const merchant = () => import('../components/setting/merchant.vue')
 const register = () => import('../components/setting/register.vue')
 const store = () => import('../components/setting/store.vue')
+const mgarticle = () => import('../components/setting/mgarticle.vue')
+
 
 const routes = [
   {
@@ -220,6 +222,11 @@ const routes = [
         path: "/setting/store",
         name: "store",
         component: store,
+      },
+      {
+        path: "/setting/mgarticle",
+        name: "mgarticle",
+        component: mgarticle,
       }
     ]
   },
